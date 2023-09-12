@@ -9,7 +9,7 @@ route.post('/api', async(req, res)=>{
         name: req.body.name
      })
         await newUser.save()
-    res.status(201).send("User created")
+    res.status(201).json({msg: "New user created"});
 });
 
 route.get("/api/:id", async(req, res)=>{
@@ -17,7 +17,7 @@ route.get("/api/:id", async(req, res)=>{
     if(!userInfo){
         return res.status(404).send("Not found")
     }
-    res.status(200).send(userInfo)
+    res.status(200).json(userInfo)
 });
 
 route.patch("/api/:id", async(req, res)=>{
@@ -25,12 +25,12 @@ route.patch("/api/:id", async(req, res)=>{
    const editInfo = await userdb.findByIdAndUpdate({_id: req.params.id}, {
     name : req.body.name
    })
-   res.status(201).send("User info updated")
+   res.status(201).json({msg: "User info updated"})
 });
 
 route.delete("/api/:id", async(req, res)=>{
     await userdb.findByIdAndDelete({_id: req.params.id})
-    res.status(200).send('Done')
+    res.status(200).json({msg: 'Done'})
 });
 
 module.exports = route
