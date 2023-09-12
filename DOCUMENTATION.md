@@ -71,3 +71,127 @@ The API should now be running on `http://localhost:5000`.
     "message": "New user created"
   }
   ```
+### Read a Resource
+
+- **URL:** `/api/:id`
+- **Method:** GET
+- **Response:**
+
+  ```json
+  {
+      "_id": "user_id",
+      "name": "User Name",
+  }
+  ```
+
+### Update a Resource
+
+- **URL:** `/api/:id`
+- **Method:** PATCH
+- **Request Body:**
+
+  ```json
+  {
+    "name": "Updated User Name"
+  }
+  ```
+
+- **Response:**
+
+  ```json
+  {
+    "msg": "User updated successfully"
+  }
+  ```
+
+### Delete a Resource
+
+- **URL:** `/api/:id`
+- **Method:** DELETE
+- **Response:**
+
+  ```json
+  {
+    "msg": "User deleted successfully"
+  }
+  ```
+
+  
+## Sample Usage
+
+Here are some sample API requests and responses:
+
+### Create a Resource
+
+**Request:**
+
+```http
+POST /api/
+Content-Type: application/json
+
+{
+  "name": "Mark Essien"
+}
+```
+
+**Response:**
+
+```json
+{
+  "message": "New user created"
+}
+```
+
+### Read a Resource
+
+**Request:**
+
+```http
+GET /api/:id
+```
+
+**Response:**
+
+```json
+   {
+    "_id": "user_id",
+    "name": "Mark Essien"
+  }
+```
+
+### Update a Resource
+
+**Request:**
+
+```http
+PATCH /api/:id
+Content-Type: application/json
+
+{
+  "name": "Mark Essien_"
+}
+```
+
+**Response:**
+
+```json
+{
+  "msg": "User updated successfully"
+}
+```
+
+### Delete a Resource
+
+**Request:**
+
+```http
+DELETE /api/:id
+```
+
+**Response:**
+
+```json
+{
+  "msg": "User deleted successfully"
+}
+```
