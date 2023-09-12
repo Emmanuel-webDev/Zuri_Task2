@@ -68,7 +68,7 @@ The API should now be running on `http://localhost:5000`.
 
   ```json
   {
-    "message": "New user created"
+    "msg": "New user created"
   }
   ```
 ### Read a Resource
