@@ -12,13 +12,13 @@ route.post('/api', async(req, res)=>{
         name: req.body.name
      })
         await newUser.save()
-    res.status(201).send({msg: newUser});
+    res.status(201).send({msg: "New user created"});
 });
 
 route.get("/api/:id", async(req, res)=>{
     const userInfo = await userdb.findById({_id: req.params.id})
     if(!userInfo){
-        return res.status(404).send("Not found")
+      return res.status(404).send("Not found")
     }
     res.status(200).json(userInfo)
 });
